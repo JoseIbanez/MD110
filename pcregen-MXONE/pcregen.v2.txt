@@ -1,0 +1,248 @@
+# Aastra MX-ONE
+# MX-ONE TS 4.1 - Script PCRegen 
+
+/opt/eri_sn/bin/mdsh -c "source pu_add_info.bat "| sed '/\r/!s/$/\r/' | tee -a pu_add_info
+/opt/eri_sn/bin/mdsh -c "media_gateway_config;"| sed '/\r/!s/$/\r/' | tee -a media_gateway_config
+/opt/eri_sn/bin/mdsh -c "board_list;"| sed '/\r/!s/$/\r/' | tee -a board_list
+/opt/eri_sn/bin/mdsh -c "media_gateway_interface;"| sed '/\r/!s/$/\r/' | tee -a media_gateway_interface
+/opt/eri_sn/bin/mdsh -c "pcm_config -print conn -lim all;"| sed '/\r/!s/$/\r/' | tee -a pcm_config_pcm
+/opt/eri_sn/bin/mdsh -c "pcm_config;"| sed '/\r/!s/$/\r/' | tee -a pcm_config
+/opt/eri_sn/bin/mdsh -c "pcm_synchronization;"| sed '/\r/!s/$/\r/' | tee -a pcm_synchronization
+/opt/eri_sn/bin/mdsh -c "alarm_input -p;"| sed '/\r/!s/$/\r/' | tee -a alarm_input_list
+/opt/eri_sn/bin/mdsh -c "alarm_output -p;"| sed '/\r/!s/$/\r/' | tee -a alarm_output_list
+/opt/eri_sn/bin/mdsh -c "alarm_action -p;"| sed '/\r/!s/$/\r/' | tee -a alarm_action_list
+/opt/eri_sn/bin/mdsh -c "SYDAP;"| sed '/\r/!s/$/\r/' | tee -a SYDAP
+/opt/eri_sn/bin/mdsh -c "SYTDP;"| sed '/\r/!s/$/\r/' | tee -a SYTDP
+/opt/eri_sn/bin/mdsh -c "ASPAP:PARNUM=ALL;"| sed '/\r/!s/$/\r/' | tee -a ASPAP
+/opt/eri_sn/bin/mdsh -c "TCMAP:CON=ALL;"| sed '/\r/!s/$/\r/' | tee -a TCMAP
+/opt/eri_sn/bin/mdsh -c "number_print;"| sed '/\r/!s/$/\r/' | tee -a number_print
+/opt/eri_sn/bin/mdsh -c "SYIDP;"| sed '/\r/!s/$/\r/' | tee -a SYIDP
+/opt/eri_sn/bin/mdsh -c "number_conversion_print;"| sed '/\r/!s/$/\r/' | tee -a number_conversion_print
+/opt/eri_sn/bin/mdsh -c "OPSAP:LIM=ALL;"| sed '/\r/!s/$/\r/' | tee -a OPSAP
+/opt/eri_sn/bin/mdsh -c "OPCAP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a OPCAP
+/opt/eri_sn/bin/mdsh -c "OPDDP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a OPDDP
+/opt/eri_sn/bin/mdsh -c "OPISP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a OPISP
+/opt/eri_sn/bin/mdsh -c "OPIDP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a OPIDP
+/opt/eri_sn/bin/mdsh -c "EXCCP:CAT=ALL;"| sed '/\r/!s/$/\r/' | tee -a EXCCP
+/opt/eri_sn/bin/mdsh -c "extension_profile -p -s;"| sed '/\r/!s/$/\r/' | tee -a extension_profile
+/opt/eri_sn/bin/mdsh -c "ADCDP:ABB=ALL;"| sed '/\r/!s/$/\r/' | tee -a ADCDP
+/opt/eri_sn/bin/mdsh -c "MTSSP:LNKSET=ALL;"| sed '/\r/!s/$/\r/' | tee -a MTSSP
+/opt/eri_sn/bin/mdsh -c "MTSLP:LINK=ALL;"| sed '/\r/!s/$/\r/' | tee -a MTSLP
+/opt/eri_sn/bin/mdsh -c "MTSTP:ROUSET=ALL;"| sed '/\r/!s/$/\r/' | tee -a MTSTP
+/opt/eri_sn/bin/mdsh -c "MTSRP:ROUSET=ALL;"| sed '/\r/!s/$/\r/' | tee -a MTSRP
+/opt/eri_sn/bin/mdsh -c "ROCAP:ROU=ALL;"| sed '/\r/!s/$/\r/' | tee -a ROCAP
+/opt/eri_sn/bin/mdsh -c "RODAP:ROU=ALL;"| sed '/\r/!s/$/\r/' | tee -a RODAP
+/opt/eri_sn/bin/mdsh -c "RODIP:DRN=ALL;"| sed '/\r/!s/$/\r/' | tee -a RODIP
+/opt/eri_sn/bin/mdsh -c "RIANP:ROU=ALL;"| sed '/\r/!s/$/\r/' | tee -a RIANP
+/opt/eri_sn/bin/mdsh -c "RODDP:DEST=ALL;"| sed '/\r/!s/$/\r/' | tee -a RODDP1
+/opt/eri_sn/bin/mdsh -c "RODDP:DEST=ALL,IPOPT=YES;"| sed '/\r/!s/$/\r/' | tee -a RODDP2
+/opt/eri_sn/bin/mdsh -c "VCCOP;"| sed '/\r/!s/$/\r/' | tee -a VCCOP
+/opt/eri_sn/bin/mdsh -c "DAREP;"| sed '/\r/!s/$/\r/' | tee -a DAREP
+/opt/eri_sn/bin/mdsh -c "DAILP:LIM=ALL;"| sed '/\r/!s/$/\r/' | tee -a DAILP
+/opt/eri_sn/bin/mdsh -c "DAPNP;"| sed '/\r/!s/$/\r/' | tee -a DAPNP
+/opt/eri_sn/bin/mdsh -c "VCMOP;"| sed '/\r/!s/$/\r/' | tee -a VCMOP
+/opt/eri_sn/bin/mdsh -c "sip_route -print -route all;"| sed '/\r/!s/$/\r/' | tee -a sip_route
+/opt/eri_sn/bin/mdsh -c "ROEDP:ROU=ALL,TRU=ALL;"| sed '/\r/!s/$/\r/' | tee -a ROEDP
+/opt/eri_sn/bin/mdsh -c "RORNP:ROU=ALL;"| sed '/\r/!s/$/\r/' | tee -a RORNP
+/opt/eri_sn/bin/mdsh -c "RORNP:CUST=ALL;"| sed '/\r/!s/$/\r/' | tee -a RORNP
+/opt/eri_sn/bin/mdsh -c "RONDP:ROU=ALL;"| sed '/\r/!s/$/\r/' | tee -a RONDP
+/opt/eri_sn/bin/mdsh -c "ip_gatekeeper -p -l all;"| sed '/\r/!s/$/\r/' | tee -a ip_gatekeeper
+/opt/eri_sn/bin/mdsh -c "ip_domain -p;"| sed '/\r/!s/$/\r/' | tee -a ip_domain
+/opt/eri_sn/bin/mdsh -c "extension_registration_distribution -p;"| sed '/\r/!s/$/\r/' | tee -a extension_registration_distribution
+/opt/eri_sn/bin/mdsh -c "extension -p -d all;"| sed '/\r/!s/$/\r/' | tee -a extension
+/opt/eri_sn/bin/mdsh -c "extension_info -p -d all;"| sed '/\r/!s/$/\r/' | tee -a extension_info
+/opt/eri_sn/bin/mdsh -c "KSDDP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a KSDDP
+/opt/eri_sn/bin/mdsh -c "KSCAP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a KSCAP
+/opt/eri_sn/bin/mdsh -c "auth_code -p;"| sed '/\r/!s/$/\r/' | tee -a auth_code
+/opt/eri_sn/bin/mdsh -c "ip_extension -p -d all;"| sed '/\r/!s/$/\r/' | tee -a ip_extension
+/opt/eri_sn/bin/mdsh -c "sec_policy -print;"| sed '/\r/!s/$/\r/' | tee -a sec_policy
+/opt/eri_sn/bin/mdsh -c "media_encryption_print -type route;"| sed '/\r/!s/$/\r/' | tee -a media_encryption_print1
+/opt/eri_sn/bin/mdsh -c "media_encryption_print -type extension;"| sed '/\r/!s/$/\r/' | tee -a media_encryption_print2
+/opt/eri_sn/bin/mdsh -c "EXCAP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a EXCAP
+/opt/eri_sn/bin/mdsh -c "EXDDP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a EXDDP
+/opt/eri_sn/bin/mdsh -c "KSMDP:MDN=ALL;"| sed '/\r/!s/$/\r/' | tee -a KSMDP
+/opt/eri_sn/bin/mdsh -c "KSFKP:DIR=ALL,KTYPE=ALL;"| sed '/\r/!s/$/\r/' | tee -a KSFKP
+/opt/eri_sn/bin/mdsh -c "ITDAP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a ITDAP
+/opt/eri_sn/bin/mdsh -c "GHDAP:GRP=ALL,SORT=1;"| sed '/\r/!s/$/\r/' | tee -a GHDAP
+/opt/eri_sn/bin/mdsh -c "ACGCP:GRP=ALL;"| sed '/\r/!s/$/\r/' | tee -a ACGCP
+/opt/eri_sn/bin/mdsh -c "ACGMP:GRP=ALL,SORT=1;"| sed '/\r/!s/$/\r/' | tee -a ACGMP
+/opt/eri_sn/bin/mdsh -c "ACTNP:DNUM=ALL;"| sed '/\r/!s/$/\r/' | tee -a ACTNP
+/opt/eri_sn/bin/mdsh -c "ACBGP:GRP=ALL;"| sed '/\r/!s/$/\r/' | tee -a ACBGP
+/opt/eri_sn/bin/mdsh -c "CSTLP;"| sed '/\r/!s/$/\r/' | tee -a CSTLP
+/opt/eri_sn/bin/mdsh -c "ACPAP:ACDNUM=ALL;"| sed '/\r/!s/$/\r/' | tee -a ACPAP
+/opt/eri_sn/bin/mdsh -c "CBDAP:GRP=ALL;"| sed '/\r/!s/$/\r/' | tee -a CBDAP
+/opt/eri_sn/bin/mdsh -c "CDCDP;"| sed '/\r/!s/$/\r/' | tee -a CDCDP
+/opt/eri_sn/bin/mdsh -c "GPDAP:GRP=ALL;"| sed '/\r/!s/$/\r/' | tee -a GPDAP
+/opt/eri_sn/bin/mdsh -c "GDNDP:GRP=1&&99;"| sed '/\r/!s/$/\r/' | tee -a GDNDP
+/opt/eri_sn/bin/mdsh -c "sip_external_domain -print;"| sed '/\r/!s/$/\r/' | tee -a sip_external_domain
+/opt/eri_sn/bin/mdsh -c "VCFLP;"| sed '/\r/!s/$/\r/' | tee -a VCFLP
+/opt/eri_sn/bin/mdsh -c "ICFUP;"| sed '/\r/!s/$/\r/' | tee -a ICFUP
+/opt/eri_sn/bin/mdsh -c "EMFUP;"| sed '/\r/!s/$/\r/' | tee -a EMFUP
+/opt/eri_sn/bin/mdsh -c "ICMWP:SID=ALL;"| sed '/\r/!s/$/\r/' | tee -a ICMWP
+/opt/eri_sn/bin/mdsh -c "ISFUP;"| sed '/\r/!s/$/\r/' | tee -a ISFUP
+/opt/eri_sn/bin/mdsh -c "ISEPP:TERM=ALL;"| sed '/\r/!s/$/\r/' | tee -a ISEPP
+/opt/eri_sn/bin/mdsh -c "ISEPP:GRP=ALL;"| sed '/\r/!s/$/\r/' | tee -a ISEPP
+/opt/eri_sn/bin/mdsh -c "VMFUP;"| sed '/\r/!s/$/\r/' | tee -a VMFUP
+/opt/eri_sn/bin/mdsh -c "VMPOP;"| sed '/\r/!s/$/\r/' | tee -a VMPOP
+/opt/eri_sn/bin/mdsh -c "VMGEP:IFCIND=ALL;"| sed '/\r/!s/$/\r/' | tee -a VMGEP
+/opt/eri_sn/bin/mdsh -c "ACFUP;"| sed '/\r/!s/$/\r/' | tee -a ACFUP
+/opt/eri_sn/bin/mdsh -c "PAEDP:SAR=ALL;"| sed '/\r/!s/$/\r/' | tee -a PAEDP
+/opt/eri_sn/bin/mdsh -c "PADAP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a PADAP
+/opt/eri_sn/bin/mdsh -c "PADAP:EPN=ALL;"| sed '/\r/!s/$/\r/' | tee -a PADAP
+/opt/eri_sn/bin/mdsh -c "PADAP:CPN=ALL;"| sed '/\r/!s/$/\r/' | tee -a PADAP
+/opt/eri_sn/bin/mdsh -c "PAALP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a PAALP
+/opt/eri_sn/bin/mdsh -c "OPCTP:CORG=ALL;"| sed '/\r/!s/$/\r/' | tee -a OPCTP
+/opt/eri_sn/bin/mdsh -c "OPCGP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a OPCGP
+/opt/eri_sn/bin/mdsh -c "OPNEP;"| sed '/\r/!s/$/\r/' | tee -a OPNEP
+/opt/eri_sn/bin/mdsh -c "OPRSP:SDM=ALL,LANG=0;"| sed '/\r/!s/$/\r/' | tee -a OPRSP0
+/opt/eri_sn/bin/mdsh -c "OPRSP:SDM=ALL,LANG=1;"| sed '/\r/!s/$/\r/' | tee -a OPRSP1
+/opt/eri_sn/bin/mdsh -c "OPRSP:SDM=ALL,LANG=2;"| sed '/\r/!s/$/\r/' | tee -a OPRSP2
+/opt/eri_sn/bin/mdsh -c "OPRSP:SDM=ALL,LANG=3;"| sed '/\r/!s/$/\r/' | tee -a OPRSP3
+/opt/eri_sn/bin/mdsh -c "OPRSP:SDM=ALL,LANG=4;"| sed '/\r/!s/$/\r/' | tee -a OPRSP4
+/opt/eri_sn/bin/mdsh -c "OPRSP:SDM=ALL,LANG=5;"| sed '/\r/!s/$/\r/' | tee -a OPRSP5
+/opt/eri_sn/bin/mdsh -c "OPRSP:SDM=ALL,LANG=6;"| sed '/\r/!s/$/\r/' | tee -a OPRSP6
+/opt/eri_sn/bin/mdsh -c "OPRSP:SDM=ALL,LANG=7;"| sed '/\r/!s/$/\r/' | tee -a OPRSP7
+/opt/eri_sn/bin/mdsh -c "OPRSP:SDM=ALL,LANG=8;"| sed '/\r/!s/$/\r/' | tee -a OPRSP8
+/opt/eri_sn/bin/mdsh -c "OPRSP:SDM=ALL,LANG=9;"| sed '/\r/!s/$/\r/' | tee -a OPRSP9
+/opt/eri_sn/bin/mdsh -c "OPRSP:ROU=ALL;"| sed '/\r/!s/$/\r/' | tee -a OPRSP10
+/opt/eri_sn/bin/mdsh -c "OPDNP;"| sed '/\r/!s/$/\r/' | tee -a OPDNP
+/opt/eri_sn/bin/mdsh -c "OPCEP:CORG=ALL;"| sed '/\r/!s/$/\r/' | tee -a OPCEP
+/opt/eri_sn/bin/mdsh -c "CPDNP;"| sed '/\r/!s/$/\r/' | tee -a CPDNP
+/opt/eri_sn/bin/mdsh -c "CPDLP;"| sed '/\r/!s/$/\r/' | tee -a CPDLP
+/opt/eri_sn/bin/mdsh -c "RAEQP:VSID=ALL;"| sed '/\r/!s/$/\r/' | tee -a RAEQP
+/opt/eri_sn/bin/mdsh -c "RADSP:ANN=ALL;"| sed '/\r/!s/$/\r/' | tee -a RADSP
+/opt/eri_sn/bin/mdsh -c "RAMDP:ANN=ALL;"| sed '/\r/!s/$/\r/' | tee -a RAMDP
+/opt/eri_sn/bin/mdsh -c "RAGMP:AGP=ALL;"| sed '/\r/!s/$/\r/' | tee -a RAGMP_GP
+/opt/eri_sn/bin/mdsh -c "RAGMP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a RAGMP_DR
+/opt/eri_sn/bin/mdsh -c "RADNP:VSID=ALL;"| sed '/\r/!s/$/\r/' | tee -a RADNP
+/opt/eri_sn/bin/mdsh -c "RAGAP:GRP=ALL;"| sed '/\r/!s/$/\r/' | tee -a RAGAP1
+/opt/eri_sn/bin/mdsh -c "RAGAP:CORG=ALL;"| sed '/\r/!s/$/\r/' | tee -a RAGAP2
+/opt/eri_sn/bin/mdsh -c "RODNP:ROU=ALL,TRU=ALL;"| sed '/\r/!s/$/\r/' | tee -a RODNP
+/opt/eri_sn/bin/mdsh -c "ROECP:EQU=ALL;"| sed '/\r/!s/$/\r/' | tee -a ROECP
+/opt/eri_sn/bin/mdsh -c "ROCDP:CUST=ALL;"| sed '/\r/!s/$/\r/' | tee -a ROCDP
+/opt/eri_sn/bin/mdsh -c "ROSCP:LIM=ALL;"| sed '/\r/!s/$/\r/' | tee -a ROSCP
+/opt/eri_sn/bin/mdsh -c "ROVNP:ROU=ALL;"| sed '/\r/!s/$/\r/' | tee -a ROVNP
+/opt/eri_sn/bin/mdsh -c "RORIP:LIM=ALL;"| sed '/\r/!s/$/\r/' | tee -a RORIP
+/opt/eri_sn/bin/mdsh -c "ROELP;"| sed '/\r/!s/$/\r/' | tee -a ROELP
+/opt/eri_sn/bin/mdsh -c "ROAPP:ROU=ALL;"| sed '/\r/!s/$/\r/' | tee -a ROAPP
+/opt/eri_sn/bin/mdsh -c "SEMIP:LIM=ALL;"| sed '/\r/!s/$/\r/' | tee -a SEMIP
+/opt/eri_sn/bin/mdsh -c "LCDDP:TAB=ENT;"| sed '/\r/!s/$/\r/' | tee -a LCDDP
+/opt/eri_sn/bin/mdsh -c "LCDDP:TAB=NLT;"| sed '/\r/!s/$/\r/' | tee -a LCDDP
+/opt/eri_sn/bin/mdsh -c "LCDDP:TAB=FDT;"| sed '/\r/!s/$/\r/' | tee -a LCDDP
+/opt/eri_sn/bin/mdsh -c "LCDDP:TAB=DNT1;"| sed '/\r/!s/$/\r/' | tee -a LCDDP
+/opt/eri_sn/bin/mdsh -c "LCDDP:TAB=DNT2;"| sed '/\r/!s/$/\r/' | tee -a LCDDP
+/opt/eri_sn/bin/mdsh -c "LCDDP:TAB=PNR;"| sed '/\r/!s/$/\r/' | tee -a LCDDP2
+/opt/eri_sn/bin/mdsh -c "LCDDP:TAB=RCT;"| sed '/\r/!s/$/\r/' | tee -a LCDDP2
+/opt/eri_sn/bin/mdsh -c "LCDDP:TAB=PNR,IPOPT=Y;"| sed '/\r/!s/$/\r/' | tee -a LCDDP3
+/opt/eri_sn/bin/mdsh -c "LCLDP:LIM=ALL;"| sed '/\r/!s/$/\r/' | tee -a LCLDP
+/opt/eri_sn/bin/mdsh -c "LCOPP:OCPT=ALL;"| sed '/\r/!s/$/\r/' | tee -a LCOPP
+/opt/eri_sn/bin/mdsh -c "LCOPP:ROU=ALL;"| sed '/\r/!s/$/\r/' | tee -a LCOPP
+/opt/eri_sn/bin/mdsh -c "LCTDP;"| sed '/\r/!s/$/\r/' | tee -a LCTDP
+/opt/eri_sn/bin/mdsh -c "NSDAP;"| sed '/\r/!s/$/\r/' | tee -a NSDAP
+/opt/eri_sn/bin/mdsh -c "callinfo_condcode_print;"| sed '/\r/!s/$/\r/' | tee -a callinfo_condcode_print
+/opt/eri_sn/bin/mdsh -c "callinfo_limit_print;"| sed '/\r/!s/$/\r/' | tee -a callinfo_limit_print
+/opt/eri_sn/bin/mdsh -c "callinfo_mask_print;"| sed '/\r/!s/$/\r/' | tee -a callinfo_mask_print
+/opt/eri_sn/bin/mdsh -c "callinfo_status_print;"| sed '/\r/!s/$/\r/' | tee -a callinfo_status_print
+/opt/eri_sn/bin/mdsh -c "account_code_print;"| sed '/\r/!s/$/\r/' | tee -a account_code_print
+/opt/eri_sn/bin/mdsh -c "ADIDP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a ADIDP
+/opt/eri_sn/bin/mdsh -c "NCNOP;"| sed '/\r/!s/$/\r/' | tee -a NCNOP
+/opt/eri_sn/bin/mdsh -c "NCICP;"| sed '/\r/!s/$/\r/' | tee -a NCICP
+/opt/eri_sn/bin/mdsh -c "NCCOP:NODE=ALL;"| sed '/\r/!s/$/\r/' | tee -a NCCOP
+/opt/eri_sn/bin/mdsh -c "NCGRP:ANCD=ALL;"| sed '/\r/!s/$/\r/' | tee -a NCGRP
+/opt/eri_sn/bin/mdsh -c "NCSGP:SAT=ALL;"| sed '/\r/!s/$/\r/' | tee -a NCSGP
+/opt/eri_sn/bin/mdsh -c "NCGMP:ANCD=ALL,SORT=1;"| sed '/\r/!s/$/\r/' | tee -a NCGMP
+/opt/eri_sn/bin/mdsh -c "CXSYP;"| sed '/\r/!s/$/\r/' | tee -a CXSYP
+/opt/eri_sn/bin/mdsh -c "CXCFP:FPI=ALL;"| sed '/\r/!s/$/\r/' | tee -a CXCFP
+/opt/eri_sn/bin/mdsh -c "CXRFP:FPI=ALL,RPN=ALL;"| sed '/\r/!s/$/\r/' | tee -a CXRFP
+/opt/eri_sn/bin/mdsh -c "CXAKP:DIR=ALL,AUTDET=YES;"| sed '/\r/!s/$/\r/' | tee -a CXAKP
+/opt/eri_sn/bin/mdsh -c "remote_extension -p -d all;"| sed '/\r/!s/$/\r/' | tee -a remote_extension
+/opt/eri_sn/bin/mdsh -c "delay_seizure_list -p;"| sed '/\r/!s/$/\r/' | tee -a delay_seizure_list
+/opt/eri_sn/bin/mdsh -c "call_list -p -d all;"| sed '/\r/!s/$/\r/' | tee -a call_list
+/opt/eri_sn/bin/mdsh -c "sms_server_print -dir all;"| sed '/\r/!s/$/\r/' | tee -a sms_server_print
+/opt/eri_sn/bin/mdsh -c "sms_client_print -lim all;"| sed '/\r/!s/$/\r/' | tee -a sms_client_print
+/opt/eri_sn/bin/mdsh -c "CDIDP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a CDIDP
+/opt/eri_sn/bin/mdsh -c "NIINP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a NIINP1
+/opt/eri_sn/bin/mdsh -c "NIINP:GRP=ALL;"| sed '/\r/!s/$/\r/' | tee -a NIINP2
+/opt/eri_sn/bin/mdsh -c "NIINP:OPE=ALL;"| sed '/\r/!s/$/\r/' | tee -a NIINP3
+/opt/eri_sn/bin/mdsh -c "NIINP:DNUM=ALL;"| sed '/\r/!s/$/\r/' | tee -a NIINP4
+/opt/eri_sn/bin/mdsh -c "NIINP:NAME=ALL;"| sed '/\r/!s/$/\r/' | tee -a NIINP5
+/opt/eri_sn/bin/mdsh -c "NIINP:DIR=ALL,LIST=ALL;"| sed '/\r/!s/$/\r/' | tee -a NIINP6
+/opt/eri_sn/bin/mdsh -c "RACEP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a RACEP1
+/opt/eri_sn/bin/mdsh -c "source racep2.bat "| sed '/\r/!s/$/\r/' | tee -a RACEP2
+/opt/eri_sn/bin/mdsh -c "RACEP:OPE=ALL;"| sed '/\r/!s/$/\r/' | tee -a RACEP3
+/opt/eri_sn/bin/mdsh -c "CHCMP:TARIFF=ALL;"| sed '/\r/!s/$/\r/' | tee -a CHCMP
+/opt/eri_sn/bin/mdsh -c "call_list_profile -p -d all;"| sed '/\r/!s/$/\r/' | tee -a call_list_profile
+/opt/eri_sn/bin/mdsh -c "parallel_ringing -p -d all;"| sed '/\r/!s/$/\r/' | tee -a parallel_ringing
+/opt/eri_sn/bin/mdsh -c "KSTSP:STRNO=ALL,LANG=0;"| sed '/\r/!s/$/\r/' | tee -a KSTSP0
+/opt/eri_sn/bin/mdsh -c "KSTSP:STRNO=ALL,LANG=1;"| sed '/\r/!s/$/\r/' | tee -a KSTSP1
+/opt/eri_sn/bin/mdsh -c "KSTSP:STRNO=ALL,LANG=2;"| sed '/\r/!s/$/\r/' | tee -a KSTSP2
+/opt/eri_sn/bin/mdsh -c "KSTSP:STRNO=ALL,LANG=3;"| sed '/\r/!s/$/\r/' | tee -a KSTSP3
+/opt/eri_sn/bin/mdsh -c "KSTSP:STRNO=ALL,LANG=4;"| sed '/\r/!s/$/\r/' | tee -a KSTSP4
+/opt/eri_sn/bin/mdsh -c "KSTSP:STRNO=ALL,LANG=5;"| sed '/\r/!s/$/\r/' | tee -a KSTSP5
+/opt/eri_sn/bin/mdsh -c "KSTSP:STRNO=ALL,LANG=6;"| sed '/\r/!s/$/\r/' | tee -a KSTSP6
+/opt/eri_sn/bin/mdsh -c "KSTSP:STRNO=ALL,LANG=7;"| sed '/\r/!s/$/\r/' | tee -a KSTSP7
+/opt/eri_sn/bin/mdsh -c "KSTSP:STRNO=ALL,LANG=8;"| sed '/\r/!s/$/\r/' | tee -a KSTSP8
+/opt/eri_sn/bin/mdsh -c "KSTSP:STRNO=ALL,LANG=9;"| sed '/\r/!s/$/\r/' | tee -a KSTSP9
+/opt/eri_sn/bin/mdsh -c "KSCHP:LANG=0;"| sed '/\r/!s/$/\r/' | tee -a KSCHP0
+/opt/eri_sn/bin/mdsh -c "KSCHP:LANG=1;"| sed '/\r/!s/$/\r/' | tee -a KSCHP1
+/opt/eri_sn/bin/mdsh -c "KSCHP:LANG=2;"| sed '/\r/!s/$/\r/' | tee -a KSCHP2
+/opt/eri_sn/bin/mdsh -c "KSCHP:LANG=3;"| sed '/\r/!s/$/\r/' | tee -a KSCHP3
+/opt/eri_sn/bin/mdsh -c "KSCHP:LANG=4;"| sed '/\r/!s/$/\r/' | tee -a KSCHP4
+/opt/eri_sn/bin/mdsh -c "KSCHP:LANG=5;"| sed '/\r/!s/$/\r/' | tee -a KSCHP5
+/opt/eri_sn/bin/mdsh -c "KSCHP:LANG=6;"| sed '/\r/!s/$/\r/' | tee -a KSCHP6
+/opt/eri_sn/bin/mdsh -c "KSCHP:LANG=7;"| sed '/\r/!s/$/\r/' | tee -a KSCHP7
+/opt/eri_sn/bin/mdsh -c "KSCHP:LANG=8;"| sed '/\r/!s/$/\r/' | tee -a KSCHP8
+/opt/eri_sn/bin/mdsh -c "KSCHP:LANG=9;"| sed '/\r/!s/$/\r/' | tee -a KSCHP9
+/opt/eri_sn/bin/mdsh -c "KSCHP:DISPOS=20&&7E&A0&&FF,LANG=0;"| sed '/\r/!s/$/\r/' | tee -a KSCHP10
+/opt/eri_sn/bin/mdsh -c "KSCHP:DISPOS=20&&7E&A0&&FF,LANG=1;"| sed '/\r/!s/$/\r/' | tee -a KSCHP11
+/opt/eri_sn/bin/mdsh -c "KSCHP:DISPOS=20&&7E&A0&&FF,LANG=2;"| sed '/\r/!s/$/\r/' | tee -a KSCHP12
+/opt/eri_sn/bin/mdsh -c "KSCHP:DISPOS=20&&7E&A0&&FF,LANG=3;"| sed '/\r/!s/$/\r/' | tee -a KSCHP13
+/opt/eri_sn/bin/mdsh -c "KSCHP:DISPOS=20&&7E&A0&&FF,LANG=4;"| sed '/\r/!s/$/\r/' | tee -a KSCHP14
+/opt/eri_sn/bin/mdsh -c "KSCHP:DISPOS=20&&7E&A0&&FF,LANG=5;"| sed '/\r/!s/$/\r/' | tee -a KSCHP15
+/opt/eri_sn/bin/mdsh -c "KSCHP:DISPOS=20&&7E&A0&&FF,LANG=6;"| sed '/\r/!s/$/\r/' | tee -a KSCHP16
+/opt/eri_sn/bin/mdsh -c "KSCHP:DISPOS=20&&7E&A0&&FF,LANG=7;"| sed '/\r/!s/$/\r/' | tee -a KSCHP17
+/opt/eri_sn/bin/mdsh -c "KSCHP:DISPOS=20&&7E&A0&&FF,LANG=8;"| sed '/\r/!s/$/\r/' | tee -a KSCHP18
+/opt/eri_sn/bin/mdsh -c "KSCHP:DISPOS=20&&7E&A0&&FF,LANG=9;"| sed '/\r/!s/$/\r/' | tee -a KSCHP19
+/opt/eri_sn/bin/mdsh -c "KSCHP:NDBPOS=ALL;"| sed '/\r/!s/$/\r/' | tee -a KSCHP20
+/opt/eri_sn/bin/mdsh -c "CHGAP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a CHGAP
+/opt/eri_sn/bin/mdsh -c "CHGAP:ROU=ALL;"| sed '/\r/!s/$/\r/' | tee -a CHGAP
+/opt/eri_sn/bin/mdsh -c "extension_text -p --ext-display-option all --language 0;"| sed '/\r/!s/$/\r/' | tee -a extension_text0
+/opt/eri_sn/bin/mdsh -c "extension_text -p --ext-display-option all --language 1;"| sed '/\r/!s/$/\r/' | tee -a extension_text1
+/opt/eri_sn/bin/mdsh -c "extension_text -p --ext-display-option all --language 2;"| sed '/\r/!s/$/\r/' | tee -a extension_text2
+/opt/eri_sn/bin/mdsh -c "extension_text -p --ext-display-option all --language 3;"| sed '/\r/!s/$/\r/' | tee -a extension_text3
+/opt/eri_sn/bin/mdsh -c "extension_text -p --ext-display-option all --language 4;"| sed '/\r/!s/$/\r/' | tee -a extension_text4
+/opt/eri_sn/bin/mdsh -c "extension_text -p --ext-display-option all --language 5;"| sed '/\r/!s/$/\r/' | tee -a extension_text5
+/opt/eri_sn/bin/mdsh -c "extension_text -p --ext-display-option all --language 6;"| sed '/\r/!s/$/\r/' | tee -a extension_text6
+/opt/eri_sn/bin/mdsh -c "extension_text -p --ext-display-option all --language 7;"| sed '/\r/!s/$/\r/' | tee -a extension_text7
+/opt/eri_sn/bin/mdsh -c "extension_text -p --ext-display-option all --language 8;"| sed '/\r/!s/$/\r/' | tee -a extension_text8
+/opt/eri_sn/bin/mdsh -c "extension_text -p --ext-display-option all --language 9;"| sed '/\r/!s/$/\r/' | tee -a extension_text9
+/opt/eri_sn/bin/mdsh -c "EXADP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a EXADP
+/opt/eri_sn/bin/mdsh -c "KSADP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a KSADP
+/opt/eri_sn/bin/mdsh -c "extension_key -p -d all;"| sed '/\r/!s/$/\r/' | tee -a extension_key1
+/opt/eri_sn/bin/mdsh -c "TRDPP;"| sed '/\r/!s/$/\r/' | tee -a TRDPP
+/opt/eri_sn/bin/mdsh -c "TRRSP;"| sed '/\r/!s/$/\r/' | tee -a TRRSP
+/opt/eri_sn/bin/mdsh -c "SPEXP:DIR=ALL;"| sed '/\r/!s/$/\r/' | tee -a SPEXP
+/opt/eri_sn/bin/mdsh -c "trsp_synchronization;"| sed '/\r/!s/$/\r/' | tee -a trsp_synchronization
+/opt/eri_sn/bin/mdsh -c "trsp_connection;"| sed '/\r/!s/$/\r/' | tee -a trsp_connection
+/opt/eri_sn/bin/mdsh -c "exchange_info;"| sed '/\r/!s/$/\r/' | tee -a exchange_info
+/opt/eri_sn/bin/mdsh -c "csta_print -lim all -servers;"| sed '/\r/!s/$/\r/' | tee -a csta_print
+/opt/eri_sn/bin/mdsh -c "ring_signal -p -d all;"| sed '/\r/!s/$/\r/' | tee -a ring_signal
+/opt/eri_sn/bin/mdsh -c "data_info;"| sed '/\r/!s/$/\r/' | tee -a data_info
+/opt/eri_sn/bin/mdsh -c "trace -print 0;"| sed '/\r/!s/$/\r/' | tee -a trace
+/opt/eri_sn/bin/mdsh -c "license_status;"| sed '/\r/!s/$/\r/' | tee -a license
+/opt/eri_sn/bin/mdsh -c "callinfo_output_info;"| sed '/\r/!s/$/\r/' | tee -a callinfo_output
+/opt/eri_sn/bin/mdsh -c "TRDIP;"| sed '/\r/!s/$/\r/' | tee -a TRDIP
+/opt/eri_sn/bin/mdsh -c "ts_about;"| sed '/\r/!s/$/\r/' | tee -a ts_about
+/opt/eri_sn/bin/mdsh -c "board_sw -sesboards -mgw all;"| sed '/\r/!s/$/\r/' | tee -a board_sw
+/opt/eri_sn/bin/mdsh -c "board_sw -status -mgw all;"| sed '/\r/!s/$/\r/' | tee -a board_sw
+/opt/eri_sn/bin/mdsh -c "lim_config_print;"| sed '/\r/!s/$/\r/' | tee -a lim_config_print
+/opt/eri_sn/bin/mdsh -c "alarm_cfg -p -f script;"| sed '/\r/!s/$/\r/' | tee -a alarm_cfg
+/opt/eri_sn/bin/mdsh -c "cert_view;"| sed '/\r/!s/$/\r/' | tee -a cert_view
+/opt/eri_sn/bin/mdsh -c "media_gateway_info;"| sed '/\r/!s/$/\r/' | tee -a media_gateway_info
+/opt/eri_sn/bin/mdsh -c "rtp_resource -lim all;"| sed '/\r/!s/$/\r/' | tee -a rtp_resource
+/opt/eri_sn/bin/mdsh -c "rtp_resource -lim all -info;"| sed '/\r/!s/$/\r/' | tee -a rtp_resource
+/opt/eri_sn/bin/mdsh -c "status -system;"| sed '/\r/!s/$/\r/' | tee -a SystemStatus
+
+
+
+

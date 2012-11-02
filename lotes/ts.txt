@@ -1,0 +1,16 @@
+@L "logkernel"
+cat /var/log/messages | grep kernel
+@L "mdstat"
+cat /proc/mdstat
+@L "smartctl-a"
+smartctl -a /dev/sda
+@L "smartctl-b"
+smartctl -a /dev/sdb
+@L "load"
+cat /proc/loadavg
+@L "hostname"
+hostname -f
+@L "ifconfig"
+ifconfig
+@L "ps"
+ps -xau
